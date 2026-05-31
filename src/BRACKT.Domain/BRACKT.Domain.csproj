@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Brackt.Domain</RootNamespace>
+    <AssemblyName>Brackt.Domain</AssemblyName>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!--
+    The Domain layer is the innermost ring of the Clean Architecture.
+    It has ZERO project references and only the minimal framework dependencies.
+    Persistence, serialization and transport concerns live further out.
+  -->
+
+</Project>

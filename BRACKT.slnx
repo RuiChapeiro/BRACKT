@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BRACKT.Domain/BRACKT.Domain.csproj" />
+    <Project Path="src/BRACKT.Infrastructure/BRACKT.Infrastructure.csproj" />
+  </Folder>
+</Solution>

@@ -1,5 +1,7 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/BRACKT.Api/BRACKT.Api.csproj" />
+    <Project Path="src/BRACKT.Application/BRACKT.Application.csproj" />
     <Project Path="src/BRACKT.Domain/BRACKT.Domain.csproj" />
     <Project Path="src/BRACKT.Infrastructure/BRACKT.Infrastructure.csproj" />
   </Folder>

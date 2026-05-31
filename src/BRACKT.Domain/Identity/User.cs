@@ -39,6 +39,17 @@ public sealed class User : AggregateRoot
         Role = SystemRole.Player;
     }
 
+    /// <summary>
+    /// Link this account to its native competitive profile. Used during
+    /// registration, where the User and Player are created together and must
+    /// reference each other (avoids a construction-order chicken-and-egg).
+    /// </summary>
+    public void AssignPlayer(Guid playerId)
+    {
+        PlayerId = playerId;
+        Touch();
+    }
+
     public void PromoteTo(SystemRole role)
     {
         if (role == Role) return;

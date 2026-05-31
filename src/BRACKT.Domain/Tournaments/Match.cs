@@ -53,16 +53,24 @@ public sealed class Match : AggregateRoot
 
     internal MatchParticipant SetParticipant(int slot, Guid? registrationId)
     {
-        var existing = _participants.SingleOrDefault(p => p.Slot == slot);
-        if (existing is not null)
+        var participant = _participants.SingleOrDefault(p => p.Slot == slot);
+        if (participant is not null)
         {
-            existing.AssignRegistration(registrationId);
-            return existing;
+            participant.AssignRegistration(registrationId);
         }
-        var participant = new MatchParticipant(Id, slot, registrationId);
-        _participants.Add(participant);
-        if (_participants.Count(p => p.RegistrationId is not null) >= 2 && Status == MatchStatus.Pending)
+        else
+        {
+            participant = new MatchParticipant(Id, slot, registrationId);
+            _participants.Add(participant);
+        }
+
+        // Whether the slot was newly created or back-filled by an advancing feeder,
+        // a match with both sides known becomes Scheduled. This matters for the
+        // bracket generator: a later round's slots are created empty (TBD) and
+        // filled as results propagate, so status must recompute on assignment too.
+        if (Status == MatchStatus.Pending && _participants.Count(p => p.RegistrationId is not null) >= 2)
             Status = MatchStatus.Scheduled;
+
         return participant;
     }
 

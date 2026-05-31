@@ -3,4 +3,7 @@
     <Project Path="src/BRACKT.Domain/BRACKT.Domain.csproj" />
     <Project Path="src/BRACKT.Infrastructure/BRACKT.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BRACKT.Domain.Tests/BRACKT.Domain.Tests.csproj" />
+  </Folder>
 </Solution>
